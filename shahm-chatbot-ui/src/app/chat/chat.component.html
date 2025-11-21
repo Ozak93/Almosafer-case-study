@@ -1,0 +1,122 @@
+<div class="chat-container">
+  <!-- Message Area -->
+  <!-- Chat Header -->
+  <header class="chat-header">
+    <div class="contact-info">
+      <img
+        src="https://rmkcdn.successfactors.com/44ea18da/4e23a616-9713-450a-8bb3-2.svg"
+        alt="Avatar"
+        class="avatar"
+        style="background-color: white;padding: 5px ;"
+
+      />
+      <div class="contact-details">
+        <div class="contact-name">Shahm AI Chatbot</div>
+        <small >Developed by Osama Zakarneh</small>
+      </div>
+    </div>
+    <div class="header-actions"></div>
+  </header>
+
+  <main class="message-area" #messageContainer>
+    <div
+      *ngFor="let message of messages"
+      class="message-wrapper"
+      [ngClass]="{
+        sent: message.fromMe === true,
+        received: message.fromMe !== true
+      }"
+    >
+      <div class="message-bubble" style="direction: auto">
+        <p
+          class="message-text"
+          dir="auto"
+          [innerHTML]="formatMessageText(message.text)"
+        ></p>
+
+        <!-- Render smart buttons if they exist -->
+        <div *ngIf="message.buttons" class="smart-buttons-container">
+          <button
+            *ngFor="let button of message.buttons"
+            class="smart-button"
+            [ngClass]="{
+              'selected-button': button.selected,
+              'unselected-button':
+                !button.selected && hasSelectedButton(message.buttons)
+            }"
+            (click)="sendSmartButtonReply(button)"
+            [disabled]="hasSelectedButton(message.buttons) && !button.selected"
+          >
+            {{ button.label }}
+          </button>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="isLoading" class="loading-indicator">
+      <div class="loading-dot"></div>
+      <div class="loading-dot"></div>
+      <div class="loading-dot"></div>
+    </div>
+  </main>
+  <!-- Message Input Footer -->
+
+  <footer class="chat-footer">
+    <!-- <button class="icon-button footer-icon" aria-label="Emoji" disabled>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="24px"
+        viewBox="0 0 24 24"
+        width="24px"
+      >
+        <path d="M0 0h24v24H0V0z" fill="none" />
+        <path
+          d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"
+        />
+      </svg>
+    </button> -->
+    <div class="message-input-wrapper">
+      <input
+        type="text"
+        class="message-input"
+        placeholder="Type a message"
+        [(ngModel)]="newMessageText"
+        (ngModelChange)="handleMessageInputChange($event)"
+        (keyup.enter)="sendMessage()"
+        aria-label="Message input"
+        [attr.aria-invalid]="inputValidationError ? true : null"
+        dir="auto"
+      />
+      <div *ngIf="inputValidationError" class="validation-error">
+        {{ inputValidationError }}
+      </div>
+    </div>
+    <!-- <button class="icon-button footer-icon" aria-label="Attach file">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="24px"
+        viewBox="0 0 24 24"
+        width="24px"
+        transform="rotate(45)"
+      >
+        <path d="M0 0h24v24H0V0z" fill="none" />
+        <path
+          d="M16.5 6v11.5c0 2.21-1.79 4-4 4s-4-1.79-4-4V5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5v10.5c0 .55-.45 1-1 1s-1-.45-1-1V6H10v9.5c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5V5c0-2.21-1.79-4-4-4S7 2.79 7 5v12.5c0 3.04 2.46 5.5 5.5 5.5s5.5-2.46 5.5-5.5V6h-1.5z"
+        />
+      </svg>
+    </button> -->
+    <button
+      class="send-button"
+      (click)="sendMessage()"
+      [disabled]="!newMessageText.trim() || inputValidationError"
+      aria-label="Send message"
+    >
+      <!-- Send Icon SVG -->
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <path
+          fill="currentColor"
+          d="M1.101 21.757L23.8 12.028 1.101 2.3l.011 7.912 13.623 1.816-13.623 1.817-.011 7.912z"
+        ></path>
+      </svg>
+    </button>
+  </footer>
+</div>

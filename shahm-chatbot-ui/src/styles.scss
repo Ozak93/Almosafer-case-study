@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: 'DroidArabicKufi';
+  src: url('/fonts/Droid-Arabic-Kufi.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'DroidKufi';
+  src: url('/fonts/DroidKufi-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+html, body {
+  font-family: 'DroidArabicKufi','DroidKufi', 'Segoe UI', Tahoma, sans-serif;
+}

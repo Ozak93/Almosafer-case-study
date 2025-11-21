@@ -1,0 +1,304 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+
+}
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  /* min-width: 400px; */
+  height: 100%; // Set a fixed height
+// max-height: 100%; // Allow it to shrink if the viewport is smaller
+  background-color: #f0f2f5; // WhatsApp-like background
+  border-radius: 8px;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow-x: hidden;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Header */
+.chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background-color: #005e54;
+  color: white;
+  flex-shrink: 0;
+}
+
+.contact-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.avatar {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+  border-radius: 65%;
+}
+
+.contact-name {
+  font-weight: 600;
+}
+
+.contact-status {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.header-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  .icon-button {
+    color: #f1f1f2; // Lighter color for header icons
+  }
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+
+  svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+  }
+}
+
+/* Message Area */
+.message-area {
+  flex-grow: 1;
+  overflow-y: auto;
+  min-height: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background-color: #dbafaf3a;
+}
+
+.message-wrapper {
+  display: flex;
+  max-width: 75%;
+  &.sent {
+    align-self: flex-end;
+    .message-bubble {
+      background-color: #dcf8c6;
+    }
+  }
+  &.received {
+    align-self: flex-start;
+    .message-bubble {
+      background-color: #ffffff;
+    }
+  }
+}
+
+.message-bubble {
+  padding: 8px 12px;
+  border-radius: 8px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  word-wrap: break-word;
+}
+
+.message-text {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  word-break: normal;
+}
+
+.message-meta {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.7rem;
+  color: #999;
+  margin-top: 4px;
+}
+
+.status-ticks {
+  font-weight: bold;
+  color: #999; /* Sent */
+  &.delivered, &.DEVICE {
+    color: #999; /* Delivered */
+  }
+  &.READ {
+    color: #4fc3f7; /* Read */
+  }
+  span {
+    margin-left: -3px;
+  }
+}
+
+/* Footer */
+.chat-footer {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  background-color: #f0f0f0;
+  flex-shrink: 0;
+  gap: 10px;
+}
+
+.message-input-wrapper {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.icon-button.footer-icon {
+  color: #54656f;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+}
+
+.message-input {
+  flex-grow: 1;
+  border: 1px solid #a8e0a8; /* Faint green border */
+  padding: 10px 15px;
+  border-radius: 20px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth transition */
+
+  &:hover {
+    border-color: #4CAF50; /* Bright green border on hover */
+  }
+
+  &:focus {
+    border-color: #4CAF50; /* Bright green border on focus */
+    box-shadow: 0 0 0 1px rgba(133, 235, 136, 0.815); /* Glow effect with bright green */
+  }
+}
+
+.validation-error {
+  font-size: 0.85rem;
+  color: #d32f2f;
+  padding-left: 12px;
+}
+
+.send-button {
+  background-color: #00897b;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: #00695c;
+  }
+
+  &:disabled {
+    background-color: #b0bec5;
+    cursor: not-allowed;
+  }
+}
+.smart-buttons-container {
+  display: flex;
+  flex-direction: row; /* Changed to row */
+  flex-wrap: wrap; /* Allow buttons to wrap */
+  gap: 8px; /* Spacing between buttons */
+  margin-top: 12px;
+}
+
+.smart-button {
+  font-family: 'DroidArabicKufi','DroidKufi';
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 12px; /* Adjusted padding for chip style */
+  border-radius: 20px; /* More rounded corners for chip style */
+  cursor: pointer;
+  font-size: 0.85rem; /* Slightly smaller font size */
+  font-weight: 500;
+  text-align: center;
+  transition: background-color 0.2s;
+  white-space: nowrap; /* Prevent text from wrapping inside the button */
+
+  &:hover {
+    background-color: #0056b3;
+  }
+}
+
+.selected-button {
+  font-family: 'DroidArabicKufi','DroidKufi';
+
+  background-color: #28a745; /* A distinct color for selected button */
+  &:hover {
+    background-color: #218838;
+  }
+}
+
+.unselected-button {
+  font-family: 'DroidArabicKufi','DroidKufi';
+
+  background-color: #6c757d; /* Greyed out for unselected */
+  cursor: not-allowed;
+  &:hover {
+    background-color: #6c757d; /* No change on hover when disabled */
+  }
+}
+
+.loading-indicator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background-color: transparent; // Changed background to transparent
+  border-top: none; // Removed border-top
+}
+
+.loading-dot {
+  width: 10px;
+  height: 10px;
+  background-color: #00897b;
+  border-radius: 50%;
+  margin: 0 4px;
+  animation: bounce 0.6s infinite alternate;
+}
+
+.loading-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.loading-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-5px);
+  }
+}

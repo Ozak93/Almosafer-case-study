@@ -1,0 +1,88 @@
+# Global OS noise
+.DS_Store
+Thumbs.db
+
+# Package managers / locks
+package-lock.json
+packages/*/package-lock.json
+sample/**/package-lock.json
+pnpm-lock.yaml
+lerna-debug.log
+npm-debug.log
+/**/npm-debug.log
+yarn-error.log
+.env
+
+# Node build artifacts
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+/tmp
+/out-tsc
+/bazel-out
+/coverage
+/.nyc_output
+/packages/graphql
+/quick-start
+/example_dist
+/example
+/benchmarks/memory
+/benchmarks/memory
+/test
+/coverage
+
+# Angular cache
+/.angular/cache
+
+# TypeScript
+*.tsbuildinfo
+packages/**/*.d.ts
+packages/**/*.js
+
+# IDE / Editor folders
+.idea/
+.project
+.classpath
+.settings/
+.vscode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.c9/
+.awcache
+.devcontainer
+*.code-workspace
+*.launch
+.history
+.history/*
+
+# Vim swap
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+
+# Misc build / tooling
+/connect.lock
+/libpeerconnection.log
+/typings
+/.idea
+/.awcache
+/.devcontainer
+/.classpath
+/.project
+/.settings
+.npmrc
+/.history
+.sass-cache/
+
+# App-specific
+almosafer-backend/dist/*
+shahm-chatbot-ui/dist
+shahm-chatbot-ui/tmp
+shahm-chatbot-ui/out-tsc
+

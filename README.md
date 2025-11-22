@@ -1,6 +1,6 @@
 # Almosafer Reservation Stack
 
-Production-ready NestJS API backed by MySQL, with Adminer, n8n, and the Shahm AI Chatbot web app included in the same Docker Compose stack. The chatbot is an Angular 20 experience that talks to the n8n workflow and backend APIs to deliver conversational reservation flows. The stack is designed to let you bring up the data layer, workflow engine, chatbot UI, and inspection tools first, replace API keys via `.env`, then start the API and wire the frontend webhook endpoint.
+Single deploy Docker Compose stack comprised of NestJS API using MySQL, with Adminer, n8n, and an AI Chatbot web app. The chatbot is an Angular 20 web app that talks to the n8n workflow and backend APIs to deliver conversational reservation flows.
 
 ---
 

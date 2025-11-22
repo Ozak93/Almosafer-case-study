@@ -43,7 +43,7 @@ import { ApiKeyModule } from './modules/auth/api-key.module';
           entities: [__dirname + '/**/*.entity{.ts,.js}'],
           debug: false,
           logging: true,
-          timezone: 'Asia/Amman',
+          timezone: '+03:00',
         };
       },
     }),

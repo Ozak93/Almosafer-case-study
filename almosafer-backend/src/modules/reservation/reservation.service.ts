@@ -44,9 +44,9 @@ export class ReservationService {
     return this.reservationRepository.save(reservation);
   }
 
-  findAll(phone: string, workflow: string): Promise<Reservation[]> {
+  findAll(phone: string): Promise<Reservation[]> {
     return this.reservationRepository.find({
-      where: { phone: Equal(phone), workflow: Equal(workflow) },
+      where: { phone: Equal(phone) },
     });
   }
 

@@ -52,16 +52,12 @@ export class ReservationController {
   })
   findAll(
     @Query('phone') phone?: string,
-    @Query('workflow') workflow?: string,
   ): Promise<Reservation[]> {
     console.log(`got phone: ${phone}`);
     if (!phone) {
       throw new BadRequestException('phone is required');
     }
 
-    if (!workflow) {
-      throw new BadRequestException('workflow is required');
-    }
 
     if (!/^\+?[1-9]\d{7,14}$/.test(phone)) {
       throw new BadRequestException(
@@ -69,7 +65,7 @@ export class ReservationController {
       );
     }
 
-    return this.reservationService.findAll(phone, workflow);
+    return this.reservationService.findAll(phone);
   }
 
   @Patch()

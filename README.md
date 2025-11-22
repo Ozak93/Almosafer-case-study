@@ -33,10 +33,10 @@ Clone this repository and make sure ports `3000`, `3306`, `5678`, and `8081` are
 
 ---
 
-## Quick Start (TL;DR)
+## Quick Start
 
 1. Review the provided `.env` file, use the provided values to setup the n8n workflow Credentials for OpenAI, Qdrant Vector Store, Brevo Mail.
-2. `docker compose up -d` – start MySQL, Adminer, n8n, backend, and the Angular frontend (backend waits until the others are ready).
+2. `docker compose up` – start MySQL, Adminer, n8n, backend, and the Angular frontend (backend waits until the others are ready).
 3. In n8n, create a blank workflow, open it then use the three-dot menu → **Import from file** to load `Shahm AI Bot workflow.json`, then update the credentials using the `.env` file then enable it.
 4. Open the frontend on `http://localhost:4200` and speak to Shahm!.
 

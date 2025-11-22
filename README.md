@@ -22,7 +22,7 @@ Production-ready NestJS API backed by MySQL, with Adminer, n8n, and the Shahm AI
 | --- | --- |
 | Docker Desktop 4.29+ (Compose v2) | Container orchestration |
 
-Clone this repository and make sure ports `3000`, `3306`, `5678`, and `8081` are free.
+Clone this repository and make sure ports `3000`, `3306`, `5678`, and `8081` are available to use.
 
 | Port | Service | Why it is needed |
 | --- | --- | --- |
@@ -49,7 +49,6 @@ The sections below expand every step.
 A fully populated `.env` file is provided. Open it, to copy the API Keys used in the n8n workflow as needed.
 
 - `STATIC_API_KEY` controls the `x-api-key` guard. If you change it, update every consumer ( n8n HTTP Nodes) before starting `frontend` and `backend`.
-- `GENERIC_TIMEZONE` is shared with n8n (`TZ` + `GENERIC_TIMEZONE`) so scheduled nodes run in the same zone as your business logic currently set to `Asia/Amman`.
 
 ---
 
@@ -79,7 +78,7 @@ Adminer connection reference:
 | Server | `mysql` | fixed |
 | Username | `root` | `MYSQL_USER` |
 | Password | value from `.env` | `MYSQL_PASSWORD` |
-| Database | `restaurant_reservation` (or your override) | `MYSQL_DATABASE` |
+| Database | `restaurant_reservation` | `MYSQL_DATABASE` |
 
 ---
 

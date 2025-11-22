@@ -1,6 +1,6 @@
 # Almosafer Reservation Stack
 
-Single deploy Docker Compose stack comprised of NestJS API using MySQL, with Adminer, n8n, and an AI Chatbot web app. The chatbot is an Angular 20 web app that talks to the n8n workflow and backend APIs to deliver conversational reservation flows.
+Single deploy Docker Compose stack comprised of NestJS API using MySQL, with Adminer, n8n, and an AI Chatbot web app. The chatbot is an Angular web app that talks to the n8n workflow and backend APIs to deliver conversational reservation flows.
 
 ---
 

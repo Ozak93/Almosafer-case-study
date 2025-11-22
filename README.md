@@ -12,7 +12,6 @@ Production-ready NestJS API backed by MySQL, with Adminer, n8n, and the Shahm AI
 - `adminer` – Browser SQL client on `http://localhost:8081` for inspecting data, and other Database operations.
 - `n8n` – Workflow engine on `http://localhost:5678` that hosts the chat node/webhook used by the frontend. As well as the main AI Agent for Shahm. Data is stored in the `n8n_data` volume.
 
-`docker-compose.yml` wires the services together: the API mounts `.env` read-only, depends on `mysql`, and `n8n` shares the same timezone/env variables so chat automations run deterministically.
 
 ---
 

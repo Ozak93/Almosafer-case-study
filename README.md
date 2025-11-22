@@ -77,7 +77,7 @@ Adminer connection reference:
 | --- | --- | --- |
 | System | `MySQL / MariaDB` | fixed |
 | Server | `mysql` | fixed |
-| Username | `root` (or the user in `.env`) | `MYSQL_USER` |
+| Username | `root` | `MYSQL_USER` |
 | Password | value from `.env` | `MYSQL_PASSWORD` |
 | Database | `restaurant_reservation` (or your override) | `MYSQL_DATABASE` |
 
@@ -103,7 +103,7 @@ The repository includes `Shahm AI Bot workflow.json`, a ready-to-run n8n flow th
 | Qdrant Vector store | `Qdrant API` | `qdrant_apikey`, `qdrant_endpoint` | `menu vector store` and `Ingest PDF To Vector Store` nodes |
 
 ### Setup Video
-![til](./media/setup-workflow_n8n.gif)
+![til](https://streamable.com/e/422fh6)
 
 4. Once all the credentials are added (OpenAI, Brevo, Qdrant) then press Save and toggle the flow to activate it.
 5. The flow is now ready to be used.

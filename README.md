@@ -103,7 +103,7 @@ The repository includes `Shahm AI Bot workflow.json`, a ready-to-run n8n flow th
 | Qdrant Vector store | `Qdrant API` | `qdrant_apikey`, `qdrant_endpoint` | `menu vector store` and `Ingest PDF To Vector Store` nodes |
 
 ### Setup Video
-![til](https://streamable.com/e/422fh6)
+![til](./media/setup-workflow.gif)
 
 4. Once all the credentials are added (OpenAI, Brevo, Qdrant) then press Save and toggle the flow to activate it.
 5. The flow is now ready to be used.

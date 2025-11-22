@@ -25,6 +25,18 @@ services:
     volumes:
       - ./.env:/app/.env:ro
 
+  frontend:
+    build:
+      context: ./shahm-chatbot-ui
+      dockerfile: dockerfile
+    container_name: shahm_frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+      - n8n
+    ports:
+      - '4200:80'
+
   mysql:
     image: mysql:latest
     container_name: reservation_mysql

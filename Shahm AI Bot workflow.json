@@ -542,7 +542,7 @@
     },
     {
       "parameters": {
-        "content": "## Step 1\n\nThe AI Agent receives messages using this node.\n\nPlease copy the chat URL in this node\n to use in the front-end app\n\n Update the variable **webhookUrl** found in the file \n**src\\environments\\environment.ts**\n in the front-end repository.\n\n",
+        "content": "## Step 1\n\nThe AI Agent receives messages using this node.\n\n the chat URL in this node\n is use in the front-end app\n\n in the variable **webhookUrl** found in the file \n**src\\environments\\environment.ts**\n in the front-end repository.\n\n",
         "height": 272,
         "width": 496
       },
@@ -557,7 +557,7 @@
     },
     {
       "parameters": {
-        "content": "## Step 2\n\nPlease copy the OpenAI API Key from the .env and setup a new credentials account using the credentials in the .env\nuse the same credential for all openAI nodes in the flow",
+        "content": "## Step 2\n\nPlease copy the OpenAI API Key from the .env and setup a new credentials account using the credentials in the .env, \n please do the same for the `send reservation email` node to use the brevo API Key in the .env file",
         "height": 176,
         "width": 496,
         "color": 4

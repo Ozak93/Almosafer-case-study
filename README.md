@@ -12,23 +12,22 @@ Single deploy Docker Compose stack comprised of NestJS API using MySQL, with Adm
 - `adminer` – Browser SQL client on `http://localhost:8081` for inspecting data, and other Database operations.
 - `n8n` – Workflow engine on `http://localhost:5678` that hosts the chat node/webhook used by the frontend. As well as the main AI Agent for Shahm. Data is stored in the `n8n_data` volume.
 
-
 ---
 
 ## Prerequisites
 
-| Tool | Purpose |
-| --- | --- |
+| Tool                              | Purpose                 |
+| --------------------------------- | ----------------------- |
 | Docker Desktop 4.29+ (Compose v2) | Container orchestration |
 
 Clone this repository and make sure ports `3000`, `3306`, `5678`, and `8081` are available to use.
 
-| Port | Service | Why it is needed |
-| --- | --- | --- |
-| `3000` | `backend` | Hosts the NestJS reservation APIs consumed by n8n. |
-| `3306` | `mysql` | Exposes the primary database so the API and Adminer can reach the reservation data. |
-| `5678` | `n8n` | Runs the Shahm AI Agent workflow that brokers chat traffic and automations. |
-| `8081` | `adminer` | Gives browser access to the SQL console for debugging and data seeding. |
+| Port   | Service   | Why it is needed                                                                    |
+| ------ | --------- | ----------------------------------------------------------------------------------- |
+| `3000` | `backend` | Hosts the NestJS reservation APIs consumed by n8n.                                  |
+| `3306` | `mysql`   | Exposes the primary database so the API and Adminer can reach the reservation data. |
+| `5678` | `n8n`     | Runs the Shahm AI Agent workflow that brokers chat traffic and automations.         |
+| `8081` | `adminer` | Gives browser access to the SQL console for debugging and data seeding.             |
 
 ---
 
@@ -67,17 +66,17 @@ Stack Urls Overview:
 - **Adminer** becomes available at `http://localhost:8081`.
 - **n8n** is reachable at `http://localhost:5678`; sign in, create a blank workflow, and import the provided `Shahm AI Bot workflow.json` file (details below) before testing chat features.
 - **backend** binds to `http://localhost:3000` only after the previous services are ready, so API requests succeed as soon as the stack finishes starting, Swagger UI available at `http://localhost:3000/docs`.
-- **frontend** serves the compiled Angular chat UI on `http://localhost:4200` using Nginx. Rebuild it with `docker compose up -d --build frontend` whenever you change UI code or the webhook URL.
+- **frontend** serves the compiled Angular chat UI on `http://localhost:4200` using Nginx. Rebuild it with `docker compose up -d --build frontend` whenever the source code or the webhook URL changes.
 
 Adminer connection reference:
 
-| Adminer field | Value | Source |
-| --- | --- | --- |
-| System | `MySQL / MariaDB` | fixed |
-| Server | `mysql` | fixed |
-| Username | `root` | `MYSQL_USER` |
-| Password | value from `.env` | `MYSQL_PASSWORD` |
-| Database | `restaurant_reservation` | `MYSQL_DATABASE` |
+| Adminer field | Value                    | Source           |
+| ------------- | ------------------------ | ---------------- |
+| System        | `MySQL / MariaDB`        | fixed            |
+| Server        | `mysql`                  | fixed            |
+| Username      | `root`                   | `MYSQL_USER`     |
+| Password      | value from `.env`        | `MYSQL_PASSWORD` |
+| Database      | `restaurant_reservation` | `MYSQL_DATABASE` |
 
 ---
 
@@ -93,22 +92,20 @@ The repository includes `Shahm AI Bot workflow.json`, a ready-to-run n8n flow th
 
 ### Credentials used in the workflow found in the `.env` file:
 
-| Component | Credential type | `.env` keys to copy | Where to apply |
-| --- | --- | --- | --- |
-| OpenAI Chat + Embeddings | `OpenAI API` | `OPENAI_API_KEY` | `OpenAI Chat Model`, `OpenAI Chat Model1`, `Embeddings OpenAI` |
-| Reservation HTTP tools (Optional) | `HTTP Request` headers | `STATIC_API_KEY` | (Optional) Replace every `x-api-key: change-me` entry in `getReservations`, `createReservation`, `modifyReservation`, `confirmReservation`, `cancelReservation`, and any other HTTP nodes that call the backend |
-| Email sender | `Brevo API` | `brevo_apikey` | `Send reservation email` node |
-| Qdrant Vector store | `Qdrant API` | `qdrant_apikey`, `qdrant_endpoint` | `menu vector store` and `Ingest PDF To Vector Store` nodes |
+| Component                         | Credential type        | `.env` keys to copy                | Where to apply                                                                                                                                                                                                  |
+| --------------------------------- | ---------------------- | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| OpenAI Chat + Embeddings          | `OpenAI API`           | `OPENAI_API_KEY`                   | `OpenAI Chat Model`, `OpenAI Chat Model1`, `Embeddings OpenAI`                                                                                                                                                  |
+| Reservation HTTP tools (Optional) | `HTTP Request` headers | `STATIC_API_KEY`                   | (Optional) Replace every `x-api-key: change-me` entry in `getReservations`, `createReservation`, `modifyReservation`, `confirmReservation`, `cancelReservation`, and any other HTTP nodes that call the backend |
+| Email sender                      | `Brevo API`            | `brevo_apikey`                     | `Send reservation email` node                                                                                                                                                                                   |
+| Qdrant Vector store               | `Qdrant API`           | `qdrant_apikey`, `qdrant_endpoint` | `menu vector store` and `Ingest PDF To Vector Store` nodes                                                                                                                                                      |
 
 ### Setup Video
+
 ![til](./media/setup-workflow.gif)
 
 4. Once all the credentials are added (OpenAI, Brevo, Qdrant) then press Save and toggle the flow to activate it.
 5. The flow is now ready to be used.
 6. navigate to `http://localhost:4200` to start interacting with Shahm.
-
-
-
 
 ---
 

@@ -51,7 +51,7 @@ Shahm is the AI concierge that provides all the services below:
 
 ## Extra Features
 - **Menu and policy grounding** – pulls embeddings from the Qdrant vector store so answers stay aligned with the latest restaurant menu.
-- **Automated follow-ups** – triggers the Brevo email node to send confirmations or cancellations without leaving the chat.
+- **Automated follow-ups** – triggers the Brevo email node to send confirmations or cancellations emails without leaving the chat.
 
 
 ---

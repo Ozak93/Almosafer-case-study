@@ -42,6 +42,20 @@ The sections below expand every step.
 
 ---
 
+## Shahm AI Agent Features
+
+Shahm is the AI concierge that provides all the services below:
+
+- **Conversational reservations** – guides guests through reservations,cancellations ,modifications , guest details, and confirmation flows while persisting context across turns.
+- **Realtime reservation access** – calls the NestJS backend through authenticated HTTP nodes to look up, create, or update reservations.
+
+## Extra Features
+- **Menu and policy grounding** – pulls embeddings from the Qdrant vector store so answers stay aligned with the latest restaurant menu.
+- **Automated follow-ups** – triggers the Brevo email node to send confirmations or cancellations without leaving the chat.
+
+
+---
+
 ## 1. Review Environment Variables
 
 A fully populated `.env` file is provided. Open it, to copy the API Keys used in the n8n workflow as needed.
